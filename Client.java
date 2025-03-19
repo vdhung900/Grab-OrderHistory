@@ -1,10 +1,9 @@
-public class Client {
+public class Client extends User {
     private String name;
-    private String phone;
 
-    public Client(String name, String phone) {
+    public Client(String name, String phone, Position position) {
+        super(phone, position);
         this.name = name;
-        this.phone = phone;
     }
 
     public Order createOrder() {
@@ -13,20 +12,17 @@ public class Client {
         return order;
     }
 
-    // Getters and setters
+    public void book(Booking booking) {
+        // Booking logic for client
+        System.out.println("Booking confirmed for departure: " + booking.getDeparture().getAddress() 
+            + " to arrival: " + booking.getArrival().getAddress());
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 } 
